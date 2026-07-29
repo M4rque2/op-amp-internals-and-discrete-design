@@ -1,0 +1,13 @@
+[book]
+title = "电子元器件应用技术：基于 OP 放大器与晶体管的放大电路设计"
+authors = ["黑田彻"]
+language = "zh-CN"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+mathjax-support = true
+

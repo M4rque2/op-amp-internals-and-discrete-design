@@ -1,2 +1,63 @@
 # op-amp-internals-and-discrete-design
-『解析 OPアンプ&amp;トランジスタ活用』 by 黒田 徹 中文翻译重制版
+
+本仓库用于把购买的扫描版《电子元器件应用技术：基于 OP 放大器与晶体管的放大电路设计》整理成便于阅读、检索、校对和 AI 辅助处理的中文 mdBook。该书是黑田彻《解析 OPアンプ&トランジスタ活用》的中文译本。
+
+原 PDF 以扫描图像为主，不适合可靠地搜索或直接交给文本工具处理。本项目先重建经过核对的中文 Markdown 版本：
+
+- 正文转录为 UTF-8 Markdown；
+- 公式转换为 LaTeX，并保留原公式编号；
+- 电路图、曲线图和照片保留为原扫描裁图；
+- 保留章节号、图号、元件标号以及原书页码追踪信息；
+- 每章完成中文核对后，才考虑制作英文译本。
+
+本仓库当前不是英文翻译项目，也不以未经校验的整书 OCR 输出作为最终内容。
+
+## 当前进度
+
+第 1 章“通过亲手制作晶体管电路学习运算放大器”已经完成中文样本：
+
+- 覆盖原 PDF 第 15-37 页，即原书印刷第 1-23 页；
+- 包含图 1.1-图 1.24 和照片 1.1；
+- 公式已转换为 LaTeX；
+- mdBook 构建、图像链接和 UTF-8 编码检查均已通过；
+- 英文翻译尚未开始。
+
+详细检查结果见 [`src/verification.md`](src/verification.md)。
+
+## 阅读与构建
+
+安装 [mdBook](https://rust-lang.github.io/mdBook/guide/installation.html) 后，在仓库根目录运行：
+
+```powershell
+mdbook build
+```
+
+生成的网站位于 `book/`。本地预览：
+
+```powershell
+mdbook serve --open
+```
+
+推送到 `main` 分支后，GitHub Actions 会自动构建并发布 GitHub Pages。
+
+## 内容与工具
+
+- `src/SUMMARY.md`：mdBook 目录
+- `src/chapter-01/chapter-01.md`：第 1 章合并稿
+- `src/chapter-01/source-sections/`：可编辑的分节源文件
+- `src/chapter-01/images/`：第 1 章扫描裁图
+- `src/verification.md`：质量检查记录
+- `tools/build_chapter1_sample.ps1`：重建第 1 章合并稿和裁图
+- `tools/ocr_scanned_chinese.ps1`：Windows 简体中文 OCR 工具
+
+## 工作原则
+
+1. 中文版的准确性优先于处理速度。
+2. OCR 只用于生成初稿，正文、公式和图号需要对照扫描页复核。
+3. 不自动重绘原电路图，避免在重绘过程中引入连接或数值错误。
+4. 中文章节没有完成核对前，不开始对应的英文翻译。
+5. 分节源文件和合并后的章节文件同时保留，以便修订和发布。
+
+## 权利说明
+
+项目代码和仓库结构采用仓库中的 MPL-2.0 许可证。原书、译文及扫描材料的权利仍归各自权利人所有。
