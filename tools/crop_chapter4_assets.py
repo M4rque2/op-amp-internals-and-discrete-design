@@ -72,6 +72,10 @@ CROPS = {
     "table-04-03.png": (122, 220, 120, 1130, 970),
     "list-04-01a.png": (136, 170, 150, 1150, 1780),
     "list-04-01b.png": (137, 170, 100, 1150, 1280),
+    "fig-c-01.png": (147, 330, 1110, 850, 1730),
+    "list-c-01a.png": (148, 280, 370, 1160, 1810),
+    "list-c-01b.png": (149, 170, 180, 1160, 1810),
+    "list-c-01c.png": (150, 330, 140, 1060, 1530),
 }
 
 
@@ -84,7 +88,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def ensure_source_pages(source: Path, source_pdf: Path, pdftoppm: Path) -> None:
-    expected = [source / f"pdf-page-{page:03d}.png" for page in range(113, 147)]
+    expected = [source / f"pdf-page-{page:03d}.png" for page in range(113, 151)]
     if all(path.exists() for path in expected):
         return
     if not source_pdf.exists():
@@ -98,7 +102,7 @@ def ensure_source_pages(source: Path, source_pdf: Path, pdftoppm: Path) -> None:
             "-f",
             "113",
             "-l",
-            "146",
+            "150",
             "-r",
             "200",
             "-png",
