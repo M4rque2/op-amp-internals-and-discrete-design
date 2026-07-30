@@ -64,12 +64,10 @@ V_T=\frac{kT}{q} \tag{2.2}
 \\[
 \begin{aligned}
 \frac{I_{C1}}{I_{C2}}
-&=
-\frac{I_{S1}\exp(V_{BE}/V_T)}{I_{S2}\exp(V_{BE}/V_T)}
-\\\\
-&=
-\frac{I_{S1}}{I_{S2}} \tag{2.3}
-\end{aligned}
+&=\frac{I_{S1}\exp(V_{BE}/V_T)}{I_{S2}\exp(V_{BE}/V_T)}
+&=\frac{I_{S1}}{I_{S2}}
+\end{aligned} 
+\tag{2.3}
 \\]
 
 其中，\\(I_{S1}\\) 为 \\(Q_1\\) 的饱和电流；\\(I_{S2}\\) 为 \\(Q_2\\) 的饱和电流。
@@ -480,11 +478,13 @@ V_{EE}=-15\ \mathrm{V},\qquad R_E=R_L=2\ \mathrm{k}\Omega
 此电路在大振幅工作时，正向输出电流是由 NPN 晶体管供给，反向输出电流则由 PNP 晶体管供给。无信号时输出电流为零，因而 \\(Q_1\\) 与 \\(Q_2\\) 的发射极电流相等，即
 
 \\[
+\begin{aligned}
 I_{E1}=I_{E2}
-=
-\frac{(V_{\mathrm{bias1}}+V_{\mathrm{bias2}})
+&=\frac{(V_{\mathrm{bias1}}+V_{\mathrm{bias2}})
 -(V_{BE1}+V_{EB2})}
-{R_{E1}+R_{E2}} \tag{2.18}
+{R_{E1}+R_{E2}}
+\end{aligned}
+\tag{2.18}
 \\]
 
 <!-- 来源：PDF 第 49 页；原书第 35 页 -->
@@ -576,25 +576,30 @@ V_{\mathrm{bias1}}+V_{\mathrm{bias2}}
 本章拟使用 \\(h\\) 参数局部从略的如图 2.10 所示的小信号等效电路。这是最简单的小信号等效电路。在此等效电路上参数 \\(h_{ie}\\) 为基极-发射极间电阻，即 \\(\Delta V_{BE}/\Delta I_B\\)；\\(h_{fe}\\) 为小信号电流放大倍数，即 \\(\Delta I_C/\Delta I_B\\)。其中 \\(h_{ie}\\) 可用式（2.1）计算。首先根据式（2.1），基极电流 \\(I_B\\) 为：
 
 \\[
+\begin{aligned}
 I_B
-=
+&=
 \left(\frac{1}{h_{FE}}\right)
 \left[
 I_S\exp\left(\frac{V_{BE}}{V_T}\right)
-\right] \tag{2.20}
+\right]
+\end{aligned}
+\tag{2.20}
 \\]
 
 若对 \\(V_{BE}\\) 微分，则
 
 \\[
+\begin{aligned}
 \frac{\Delta I_B}{\Delta V_{BE}}
-=
+&=
 \left(\frac{1}{h_{FE}}\right)
 \left[
 \frac{I_S}{V_T}\exp\left(\frac{V_{BE}}{V_T}\right)
 \right]
 =\frac{I_B}{V_T}
 =\frac{I_C}{h_{FE}V_T}
+\end{aligned}
 \\]
 
 <!-- 来源：PDF 第 52 页；原书第 38 页 -->

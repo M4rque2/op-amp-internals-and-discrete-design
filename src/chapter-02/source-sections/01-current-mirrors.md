@@ -68,8 +68,9 @@ V_T=\frac{kT}{q} \tag{2.2}
 \frac{I_{S1}\exp(V_{BE}/V_T)}{I_{S2}\exp(V_{BE}/V_T)}
 \\\\
 &=
-\frac{I_{S1}}{I_{S2}} \tag{2.3}
+\frac{I_{S1}}{I_{S2}}
 \end{aligned}
+\tag{2.3}
 \\]
 
 其中，\\(I_{S1}\\) 为 \\(Q_1\\) 的饱和电流；\\(I_{S2}\\) 为 \\(Q_2\\) 的饱和电流。

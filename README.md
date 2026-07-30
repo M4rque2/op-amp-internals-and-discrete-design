@@ -23,10 +23,18 @@
   - 原 PDF 第 39-61 页，即原书印刷第 25-47 页；
   - 图 2.1-图 2.21、表 2.1-表 2.3；
   - 公式（2.1）-（2.33）。
+- 第 3 章“用电路模拟器制作的正规运算放大器”：
+  - 原 PDF 第 63-95 页，即原书印刷第 49-81 页；
+  - 图 3.1-图 3.27、表 3.1-表 3.4、List 3.1-List 3.7；
+  - 公式（3.1）-（3.29）。
+- 第 4 章“基于晶体管优于 IC 的运算放大器设计”：
+  - 原 PDF 第 113-146 页，即原书印刷第 99-132 页（第 146 页仅取图 4.36）；
+  - 图 4.1-图 4.36、照片 4.1-照片 4.2、表 4.1-表 4.3、List 4.1；
+  - 公式（4.1）-（4.25）。
 
-两章均已转换公式、核对图像链接和 UTF-8 编码，并通过 mdBook 构建。英文翻译尚未开始。
+四章均已转换公式、核对图像链接和 UTF-8 编码，并通过 mdBook 构建。英文翻译尚未开始。
 
-详细检查结果见 [`src/verification.md`](src/verification.md) 和 [`src/chapter-02/verification.md`](src/chapter-02/verification.md)。
+详细检查结果见各章目录中的 `verification.md`。
 
 ## 阅读与构建
 
@@ -51,9 +59,13 @@ mdbook serve --open
 - `src/chapter-01/source-sections/`：第 1 章可编辑的分节源文件
 - `src/chapter-01/images/`：第 1 章扫描裁图
 - `src/chapter-02/`：第 2 章正文、分节源文件、裁图和验证记录
+- `src/chapter-03/`：第 3 章正文、分节源文件、裁图和验证记录
+- `src/chapter-04/`：第 4 章正文、分节源文件、裁图和验证记录
 - `src/verification.md`：第 1 章质量检查记录
 - `tools/build_chapter1_sample.ps1`：重建第 1 章合并稿和裁图
 - `tools/build_chapter2.ps1`：重建第 2 章合并稿和裁图
+- `tools/build_chapter3.ps1`：重建第 3 章合并稿和裁图
+- `tools/build_chapter4.ps1`：重建第 4 章合并稿和裁图
 - `tools/ocr_scanned_chinese.ps1`：Windows 简体中文 OCR 工具
 
 ## 工作原则
