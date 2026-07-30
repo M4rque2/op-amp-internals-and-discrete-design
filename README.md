@@ -14,15 +14,19 @@
 
 ## 当前进度
 
-第 1 章“通过亲手制作晶体管电路学习运算放大器”已经完成中文样本：
+已完成中文重制：
 
-- 覆盖原 PDF 第 15-37 页，即原书印刷第 1-23 页；
-- 包含图 1.1-图 1.24 和照片 1.1；
-- 公式已转换为 LaTeX；
-- mdBook 构建、图像链接和 UTF-8 编码检查均已通过；
-- 英文翻译尚未开始。
+- 第 1 章“通过亲手制作晶体管电路学习运算放大器”：
+  - 原 PDF 第 15-37 页，即原书印刷第 1-23 页；
+  - 图 1.1-图 1.24 和照片 1.1。
+- 第 2 章“通用运算放大器 IC 4558 的分析”：
+  - 原 PDF 第 39-61 页，即原书印刷第 25-47 页；
+  - 图 2.1-图 2.21、表 2.1-表 2.3；
+  - 公式（2.1）-（2.33）。
 
-详细检查结果见 [`src/verification.md`](src/verification.md)。
+两章均已转换公式、核对图像链接和 UTF-8 编码，并通过 mdBook 构建。英文翻译尚未开始。
+
+详细检查结果见 [`src/verification.md`](src/verification.md) 和 [`src/chapter-02/verification.md`](src/chapter-02/verification.md)。
 
 ## 阅读与构建
 
@@ -44,10 +48,12 @@ mdbook serve --open
 
 - `src/SUMMARY.md`：mdBook 目录
 - `src/chapter-01/chapter-01.md`：第 1 章合并稿
-- `src/chapter-01/source-sections/`：可编辑的分节源文件
+- `src/chapter-01/source-sections/`：第 1 章可编辑的分节源文件
 - `src/chapter-01/images/`：第 1 章扫描裁图
-- `src/verification.md`：质量检查记录
+- `src/chapter-02/`：第 2 章正文、分节源文件、裁图和验证记录
+- `src/verification.md`：第 1 章质量检查记录
 - `tools/build_chapter1_sample.ps1`：重建第 1 章合并稿和裁图
+- `tools/build_chapter2.ps1`：重建第 2 章合并稿和裁图
 - `tools/ocr_scanned_chinese.ps1`：Windows 简体中文 OCR 工具
 
 ## 工作原则
