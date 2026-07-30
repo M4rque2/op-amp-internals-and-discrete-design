@@ -10,3 +10,7 @@
 - [第 4 章　基于晶体管优于 IC 的运算放大器设计](chapter-04/chapter-04.md)
   - [附录 C　对由 Cob 的电压依存性导致的失真进行分析计算](chapter-04/appendix-c.md)
   - [第 4 章验证记录](chapter-04/verification.md)
+- [第 5 章　通用运算放大器 IC 的分析](chapter-05/chapter-05.md)
+  - [第 5 章验证记录](chapter-05/verification.md)
+- [第 6 章　高精度、低噪声运算放大器 IC 的分析](chapter-06/chapter-06.md)
+  - [第 6 章验证记录](chapter-06/verification.md)
