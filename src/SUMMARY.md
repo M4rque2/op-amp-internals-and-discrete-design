@@ -16,3 +16,5 @@
   - [第 6 章验证记录](chapter-06/verification.md)
 - [第 7 章　高速宽频带运算放大器的分析](chapter-07/chapter-07.md)
   - [第 7 章验证记录](chapter-07/verification.md)
+- [第 8 章　CMOS 型运算放大器 IC 的分析](chapter-08/chapter-08.md)
+  - [第 8 章验证记录](chapter-08/verification.md)
