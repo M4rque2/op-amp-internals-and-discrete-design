@@ -330,8 +330,7 @@ R&=(R_1+R_2)/2, &
 如果把式（4）、式（5）代入式（3）加以整理的话，则集电极电流的相对误差 \\(\Delta I_C/I_C\\) 为：
 
 \\[
-\frac{\Delta I_C}{I_C}
-=
+\frac{\Delta I_C}{I_C}=
 \left(\frac{V_T}{RI_E+V_T}\right)
 \left(\frac{\Delta I_S}{I_S}\right)
 -\left(\frac{RI_E}{RI_E+V_T}\right)
