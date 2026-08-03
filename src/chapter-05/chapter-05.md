@@ -71,10 +71,10 @@ TL07x 的电路，是第 2 章（图 2.2）所介绍 RC4558 的初级差动配�
 
 这是由两个 BJT 所构成。电流镜像的电流放大倍数 M 根据式(2.6)
 
-\\\[
+\\[
 M=\frac{I_{\mathrm{C}2}}{I_{1}}=\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}
 \tag{5.1}
-\\\]
+\\]
 
 如果 \\(h_{FE}\\) 为 200，则 M 为 0.99。
 
@@ -84,33 +84,33 @@ M=\frac{I_{\mathrm{C}2}}{I_{1}}=\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}
 
 这是由三个 BJT 所构成。电流镜像的电流放大倍数 M 为：
 
-\\\[
+\\[
 M=\frac{I_{\mathrm{C}2}}{I_{\mathrm{C}1}}=\frac{I_{\mathrm{C}2}}{I_{\mathrm{C}1}+I_{\mathrm{B}3}}
 \tag{5.2}
-\\\]
+\\]
 
 从转换速率（13 μs）与相位补偿电容（18pF）的关系（第 2 章式(2.30)），可以反算出差动放大电路的共源极电流是 240μA，则推断 \\(I_{C1}\\) 与 \\(I_{C2}\\) 为其 1/2，即 120μA。假定 \\(R_3\\)=50kΩ，\\(R_3\\) 的电位降 =0.75 V，\\(Q_3\\) 的 \\(h_{FE}\\)=200 时，则 \\(Q_3\\) 的基极电流 \\(I_{B3}\\) 应为：
 
-\\\[
+\\[
 I_{\mathrm{B}3}\approx\frac{1}{h_{\mathrm{FE}3}}\frac{0.75}{R_3}=\frac{1}{200}\times\frac{0.75}{50\times10^3}=0.075(\mu\mathrm{A})
 \tag{5.3}
-\\\]
+\\]
 
-\\\[
+\\[
 M=\frac{I_{\mathrm{C}2}}{I_{\mathrm{C}1}}=\frac{120}{120+0.075}=0.9994
 \tag{5.4}
-\\\]
+\\]
 
 也就是说比图 5.4(a)的 M=0.99 更接近 1。
 
 图 5.4(b)的电流镜像还有别的优点，那就是 \\(Q_1\\) 的 \\(V_{CE}\\) 与 \\(Q_2\\) 的 \\(V_{CE}\\) 大致相等。
 
-\\\[
+\\[
 V_{\mathrm{CE}1}=V_{\mathrm{BE}1}+V_{\mathrm{BE}3}\approx1.2(\mathrm{V})
-\\\]
-\\\[
+\\]
+\\[
 V_{\mathrm{CE}2}=V_{\mathrm{BE}1}+V_{\mathrm{BE}3}+(R_1I_{\mathrm{E}3}-R_2I_{\mathrm{E}2})\approx1.2(\mathrm{V})
-\\\]
+\\]
 
 如果根据图 5.4(a)的构成，由于 \\(Q_1\\) 与 \\(Q_2\\) 的 \\(V_{CE}\\) 约差 0.6 V，所以 FET \\(J_1\\) 与 \\(J_2\\) 的 \\(V_{DS}\\) 约产生 0.6 V 的误差，那就会引起 \\(I_D\\) 的不平衡，导致输入失调电压增加。一般因 FET 比 BJT \\(g_m\\) 小，所以 FET 配对的 \\(I_D\\) 不平衡，比 BJT 配对的不平衡会造成更大的输入失调电压。
 
@@ -201,38 +201,38 @@ LF353 的内部（图 5.8）有以下的电流镜像：
 
 在图 5.11(b)中由点线所包围的部分是 Type①的电流镜像，故
 
-\\\[
+\\[
 I_{\mathrm{C}2}=\left(\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}\right)I_{\mathrm{E}3}
 \tag{5.5a}
-\\\]
+\\]
 
 根据基尔霍夫电流法则
 
-\\\[
+\\[
 I_1=I_{\mathrm{C}2}\mid I_{\mathrm{E}3}=I_{\mathrm{C}2}+\frac{I_{\mathrm{E}3}}{1+h_{\mathrm{FE}}}
 \tag{5.5b}
-\\\]
+\\]
 
 从而
 
-\\\[
+\\[
 I_1=\left(\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}+\frac{1}{1+h_{\mathrm{FE}}}\right)I_{\mathrm{E}3}
 \tag{5.5c}
-\\\]
+\\]
 
 在此，因
 
-\\\[
+\\[
 I_{\mathrm{E}3}=\left(\frac{1+h_{\mathrm{FE}}}{h_{\mathrm{FE}}}\right)I_{\mathrm{C}3}
 \tag{5.5d}
-\\\]
+\\]
 
 故将此式代入式(5.5c)，然后把 \\(I_{E3}\\) 消去，加以整理，则得
 
-\\\[
+\\[
 M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}+2}\approx 1-\frac{2}{h_{\mathrm{FE}^2}}
 \tag{5.6}
-\\\]
+\\]
 
 <!-- human: h_{\mathrm{FE}^2 平方符号渲染位置有问题-->
 
@@ -242,27 +242,27 @@ M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\math
 
 假定图 5.8 的 \\(Z_1\\) 的齐纳电压为 5.6V，则 \\(R_4\\) 有下面的电流 \\(I\\) 通过。
 
-\\\[
+\\[
 I=\frac{5.6-(V_{\mathrm{BE}15}+V_{\mathrm{D}1}+V_{\mathrm{D}4})}{R_4}=\frac{3.8}{20\times10^3}=190(\mu\mathrm{A})
 \tag{5.7}
-\\\]
+\\]
 
 \\(I\\) 将分流于电流镜像 \\(D_1\\)、\\(D_16\\)。假设 \\(D_{16}\\) 的饱和电流与 \\(D_1\\) 的饱和和电流之比为 n，则可成立下式，即
 
-\\\[
+\\[
 \frac{I_{\mathrm{E}16}}{I_{\mathrm{D}1}}=n
 \tag{5.8}
-\\\]
+\\]
 
 从而，
 
-\\\[
+\\[
 \\begin{aligned}
 I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\mathrm{BE}6}+I_{\mathrm{D}1}}\right)
 &=190\mu\mathrm{A}\times\left(\frac{n}{n+1}\right)
 \\end{aligned}
 \tag{5.9}
-\\\]
+\\]
 
 如果 n=3，则 \\(I_{C16}\\)≈142μA，Wilson 型电流镜像 \\(Q_{14}\\) 的 \\(I_C\\) 也约为 142μA。
 
@@ -272,10 +272,10 @@ I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\m
 
 从 \\(Q_{11}\\) 的 \\(I_C\\)=142μA 与补偿电容 \\(C_C\\)=10 pF，可算出转换速率 SR 为：
 
-\\\[
+\\[
 \mathrm{SR}=\frac{142\mu\mathrm{A}}{10\times10^{-12}}=14.2\,\mathrm{V/\mu s}
 \tag{5.10}
-\\\]
+\\]
 
 额定值为 13 V/μs（参照表 5.1）。
 
@@ -301,12 +301,12 @@ I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\m
 
 一般而言，若从运算放大器的输出端返回向输入的电压负反馈量用 F(倍)，开环输出阻抗用 (\\(Z_O\\))open，闭环输出阻抗则用 (\\(Z_O\\))closed 表示，下式就可成立。
 
-\\\[
+\\[
 \\begin{aligned}
 (Z_{\mathrm{O}})_{\mathrm{closed}}=\frac{(Z\_{\mathrm{O}})\_{\mathrm{open}}}{F}
 \\end{aligned}
 \tag{5.11}
-\\\]
+\\]
 <!-- 来源：PDF 第 162 页；原书第 148 页 -->
 
 ### 5.2.6　防止 \\(Q_5\\) 饱和的电路
@@ -406,16 +406,16 @@ Lateral PNP 晶体管的断面构造如图 5.20 所示，这是把 NPN 型 BJT �
 
 (\\(C_3\\)+\\(C_4\\))在图 5.22(a)中作为局部负反馈电容使用，频率在数 MHz 以上时，其开环增益 A 为：
 
-\\\[
+\\[
 A=\frac{g_{\mathrm{m}}}{2}\frac{1}{j\omega(C_3+C_4)}
 \tag{5.12}
-\\\]
+\\]
 
 从而单位增益频率 \\(f_T\\) 是
 
-\\\[
+\\[
 f_{\mathrm{T}}=\frac{g_{\mathrm{m}}/2}{2\pi(C_3+C_4)}=\frac{1.2\times10^{-3}}{6.28\times(14+7)\times10^{-12}}=9.1(\mathrm{MHz})
-\\\]
+\\]
 
 不妨再回到图 5.21。节点(Node)\\(P_2\\) 与 \\(P_3\\) 属同相，故由 \\(C_2\\) 施加正反馈时，有可能不稳定。因此借助 \\(C_3\\)=14 pF 施加局部负反馈以抵消正反馈。频率在数百 kHz 以下（第 2 级+第 3 级）时，增益会非常高，所以归结于图 5.22(b)的方块图。从而开环增益
 
@@ -427,16 +427,16 @@ f_{\mathrm{T}}=\frac{g_{\mathrm{m}}/2}{2\pi(C_3+C_4)}=\frac{1.2\times10^{-3}}{6.
 
 A 为：
 
-\\\[
+\\[
 A=\frac{g_{\mathrm{m}}}{j\omega C_3}
 \tag{5.13}
-\\\]
+\\]
 
 增益带宽积 GBP 是
 
-\\\[
+\\[
 \mathrm{GBP}=\frac{g_{\mathrm{m}}}{2\pi C_3}=\frac{2.4\times10^{-3}}{6.28\times14\times10^{-12}}=27(\mathrm{MHz})
-\\\]
+\\]
 
 像这样，使用前馈相位补偿的运算放大器的 \\(f_T\\) 与 GB 积并不一致。从式(5.12)与式(5.13)，应可形成如图 5.23 所示的频率特性。
 

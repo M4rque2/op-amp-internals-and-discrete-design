@@ -38,38 +38,38 @@ LF353 的内部（图 5.8）有以下的电流镜像：
 
 在图 5.11(b)中由点线所包围的部分是 Type①的电流镜像，故
 
-\\\[
+\\[
 I_{\mathrm{C}2}=\left(\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}\right)I_{\mathrm{E}3}
 \tag{5.5a}
-\\\]
+\\]
 
 根据基尔霍夫电流法则
 
-\\\[
+\\[
 I_1=I_{\mathrm{C}2}\mid I_{\mathrm{E}3}=I_{\mathrm{C}2}+\frac{I_{\mathrm{E}3}}{1+h_{\mathrm{FE}}}
 \tag{5.5b}
-\\\]
+\\]
 
 从而
 
-\\\[
+\\[
 I_1=\left(\frac{h_{\mathrm{FE}}}{2+h_{\mathrm{FE}}}+\frac{1}{1+h_{\mathrm{FE}}}\right)I_{\mathrm{E}3}
 \tag{5.5c}
-\\\]
+\\]
 
 在此，因
 
-\\\[
+\\[
 I_{\mathrm{E}3}=\left(\frac{1+h_{\mathrm{FE}}}{h_{\mathrm{FE}}}\right)I_{\mathrm{C}3}
 \tag{5.5d}
-\\\]
+\\]
 
 故将此式代入式(5.5c)，然后把 \\(I_{E3}\\) 消去，加以整理，则得
 
-\\\[
+\\[
 M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}+2}\approx 1-\frac{2}{h_{\mathrm{FE}}^2}
 \tag{5.6}
-\\\]
+\\]
 
 如果 \\(h_{FE}\\)=200，则 M≈0.999 95。实际上由于 BJT 的饱和和电流有误差，不致于得到这样的数值，但由此可知 Wilson 型在本质上是非常优异的电路。
 
@@ -77,24 +77,24 @@ M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\math
 
 假定图 5.8 的 \\(Z_1\\) 的齐纳电压为 5.6V，则 \\(R_4\\) 有下面的电流 \\(I\\) 通过。
 
-\\\[
+\\[
 I=\frac{5.6-(V_{\mathrm{BE}15}+V_{\mathrm{D}1}+V_{\mathrm{D}4})}{R_4}=\frac{3.8}{20\times10^3}=190(\mu\mathrm{A})
 \tag{5.7}
-\\\]
+\\]
 
 \\(I\\) 将分流于电流镜像 \\(D_1\\)、\\(D_6\\)。假设 \\(D_{16}\\) 的饱和电流与 \\(D_1\\) 的饱和和电流之比为 n，则可成立下式，即
 
-\\\[
+\\[
 \frac{I_{\mathrm{E}16}}{I_{\mathrm{D}1}}=n
 \tag{5.8}
-\\\]
+\\]
 
 从而，
 
-\\\[
+\\[
 I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\mathrm{BE}6}+I_{\mathrm{D}1}}\right)=190\mu\mathrm{A}\times\left(\frac{n}{n+1}\right)
 \tag{5.9}
-\\\]
+\\]
 
 如果 n=3，则 \\(I_{C16}\\)≈142μA，Wilson 型电流镜像 \\(Q_{14}\\) 的 \\(I_C\\) 也约为 142μA。
 
@@ -104,10 +104,10 @@ I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\m
 
 从 \\(Q_{11}\\) 的 \\(I_C\\)=142μA 与补偿电容 \\(C_C\\)=10 pF，可算出转换速率 SR 为：
 
-\\\[
+\\[
 \mathrm{SR}=\frac{142\mu\mathrm{A}}{10\times10^{-12}}=14.2\,\mathrm{V/\mu s}
 \tag{5.10}
-\\\]
+\\]
 
 额定值为 13 V/μs（参照表 5.1）。
 
@@ -131,10 +131,10 @@ I_{\mathrm{C}16}\approx190\mu\mathrm{A}\times\left(\frac{I_{\mathrm{E}16}}{I_{\m
 
 一般而言，若从运算放大器的输出端返回向输入的电压负反馈量用 F(倍)，开环输出阻抗用 (\\(Z_O\\))_open，闭环输出阻抗则用 (\\(Z_O\\))_closed 表示，下式就可成立。
 
-\\\[
+\\[
 (Z_{\mathrm{O}})_{\mathrm{closed}}=\frac{(Z_{\mathrm{O}})_{\mathrm{open}}}{F}
 \tag{5.11}
-\\\]
+\\]
 
 <!-- 来源：PDF 第 162 页；原书第 148 页 -->
 
