@@ -220,145 +220,145 @@ x=\frac{1}{2}\left(\frac{V_{ID}}{V_T}\right)
 
 **图 2.5　差动放大电路的集电极电流对于差动输入电压的特性**
 
-#### 专栏：插入发射极电阻的电流镜像的分析
-
-现将图 2.3(b) 的电流镜像电路，不妨在定量上对饱和电流——不易受元件的误差影响加以推导。在图 2.3(b) 中，
-
-\\[
-V_{BE1}+R_1I_{E1}=V_{BE2}+R_2I_{E2}
-\\]
-
-从而，
-
-\\[
-V_{BE1}-V_{BE2}=R_2I_{E2}-R_1I_{E1} \tag{1}
-\\]
-
-若针对 \\(V_{BE}\\) 求解式（2.1），则
-
-\\[
-V_{BE}=V_T\ln(I_C/I_S) \tag{2}
-\\]
-
-其中，\\(V_T\\) 为热电压；\\(I_S\\) 为饱和电流。
-
-从式（1）与式（2），得
-
-\\[
-V_T\left[
-\ln\left(
-\frac{I_{C1}}{I_{C2}}\cdot\frac{I_{S2}}{I_{S1}}
-\right)
-\right]
-=R_2I_{E2}-R_1I_{E1} \tag{3}
-\\]
-
-为计算简单起见，导入以下的补助变量 \\(I_C\\)、\\(\Delta I_C\\)、\\(R\\)、\\(\Delta R\\)、\\(I_E\\)、\\(\Delta I_E\\)。
-
-\\[
-\begin{aligned}
-I_C&=(I_{C1}+I_{C2})/2, &
-\Delta I_C&=I_{C1}-I_{C2}, \\\\
-I_E&=(I_{E1}+I_{E2})/2, &
-\Delta I_E&=I_{E1}-I_{E2}, \\\\
-R&=(R_1+R_2)/2, &
-\Delta R&=R_1-R_2
-\end{aligned}
-\\]
-
-进而，假设若
-
-\\[
-\left|\frac{\Delta I_C}{I_C}\right|\ll1,\qquad
-\left|\frac{\Delta I_E}{I_E}\right|\ll1,\qquad
-\frac{\Delta R}{R}\ll1
-\\]
-
-则式（3）的左边与右边可改写如下。
-
-<!-- 来源：PDF 第 45 页；原书第 31 页 -->
-
-\\[
-\begin{aligned}
-\text{左边}
-&=V_T\left[
-\ln\left(\frac{I_{C1}}{I_{C2}}\right)
--\ln\left(\frac{I_{S1}}{I_{S2}}\right)
-\right] \\\\
-&\approx V_T\left[
-\ln\left(1+\frac{\Delta I_C}{I_C}\right)
--\ln\left(1+\frac{\Delta I_S}{I_S}\right)
-\right]
-\end{aligned}
-\\]
-
-在此假设 \\(|x|\ll1\\)，则可近似为 \\(\ln(1+x)\approx x\\)，故得：
-
-\\[
-\ln\left(1+\frac{\Delta I_C}{I_C}\right)
-\approx\frac{\Delta I_C}{I_C},
-\qquad
-\ln\left(1+\frac{\Delta I_S}{I_S}\right)
-\approx\frac{\Delta I_S}{I_S}
-\\]
-
-式（3）的左边可近似为：
-
-\\[
-\text{左边}
-=V_T\left(
-\frac{\Delta I_C}{I_C}
--\frac{\Delta I_S}{I_S}
-\right) \tag{4}
-\\]
-
-另一方面，式（3）的右边则可近似为：
-
-\\[
-\begin{aligned}
-\text{右边}
-&=R_2I_{E2}-R_1I_{E1} \\\\
-&\approx -RI_E\left(
-\frac{\Delta I_E}{I_E}
-+\frac{\Delta R}{R}
-\right) \\\\
-&\approx -RI_E\left(
-\frac{\Delta I_C}{I_C}
-+\frac{\Delta R}{R}
-\right)
-\end{aligned}
-\tag{5}
-\\]
-
-如果把式（4）、式（5）代入式（3）加以整理的话，则集电极电流的相对误差 \\(\Delta I_C/I_C\\) 为：
-
-\\[
-\frac{\Delta I_C}{I_C}
-=
-\left(\frac{V_T}{RI_E+V_T}\right)
-\left(\frac{\Delta I_S}{I_S}\right)
--\left(\frac{RI_E}{RI_E+V_T}\right)
-\left(\frac{\Delta R}{R}\right)
-\tag{6}
-\\]
-
-在此若设定 \\(R_1\\) 与 \\(R_2\\) 使得电阻电位降 \\(RI_E\\) 远大于热电压 \\(V_T\\)（约 26 mV；原文误作 mA）的话，则可得下式：
-
-\\[
-\frac{\Delta I_C}{I_C}
-\approx
-\left(\frac{V_T}{RI_E}\right)
-\left(\frac{\Delta I_S}{I_S}\right)
--\frac{\Delta R}{R}
-\tag{7}
-\\]
-
-此式意味着当 \\(RI_E\\) 远大于 \\(V_T\\) 时，集电极电流的相对误差依赖于发射极电阻的相对误差，并且几乎不受饱和电流误差的影响。
-
-单晶体 IC 上电阻值的误差在 ±0.1%-±2% 左右，比饱和电流的误差小，所以可通过插入发射极电阻从而减小电流镜像的集电极电流的相对误差。
-
-发射极电阻的值如果用激光微调（Laser Trimming）进行微调，集电极电流的相对误差能够更加降低。
-
+> **专栏　插入发射极电阻的电流镜像的分析**
+>
+> 现将图 2.3(b) 的电流镜像电路，不妨在定量上对饱和电流——不易受元件的误差影响加以推导。在图 2.3(b) 中，
+>
+> \\[
+> V_{BE1}+R_1I_{E1}=V_{BE2}+R_2I_{E2}
+> \\]
+>
+> 从而，
+>
+> \\[
+> V_{BE1}-V_{BE2}=R_2I_{E2}-R_1I_{E1} \tag{1}
+> \\]
+>
+> 若针对 \\(V_{BE}\\) 求解式（2.1），则
+>
+> \\[
+> V_{BE}=V_T\ln(I_C/I_S) \tag{2}
+> \\]
+>
+> 其中，\\(V_T\\) 为热电压；\\(I_S\\) 为饱和电流。
+>
+> 从式（1）与式（2），得
+>
+> \\[
+> V_T\left[
+> \ln\left(
+> \frac{I_{C1}}{I_{C2}}\cdot\frac{I_{S2}}{I_{S1}}
+> \right)
+> \right]
+> =R_2I_{E2}-R_1I_{E1} \tag{3}
+> \\]
+>
+> 为计算简单起见，导入以下的补助变量 \\(I_C\\)、\\(\Delta I_C\\)、\\(R\\)、\\(\Delta R\\)、\\(I_E\\)、\\(\Delta I_E\\)。
+>
+> \\[
+> \begin{aligned}
+> I_C&=(I_{C1}+I_{C2})/2, &
+> \Delta I_C&=I_{C1}-I_{C2}, \\\\
+> I_E&=(I_{E1}+I_{E2})/2, &
+> \Delta I_E&=I_{E1}-I_{E2}, \\\\
+> R&=(R_1+R_2)/2, &
+> \Delta R&=R_1-R_2
+> \end{aligned}
+> \\]
+>
+> 进而，假设若
+>
+> \\[
+> \left|\frac{\Delta I_C}{I_C}\right|\ll1,\qquad
+> \left|\frac{\Delta I_E}{I_E}\right|\ll1,\qquad
+> \frac{\Delta R}{R}\ll1
+> \\]
+>
+> 则式（3）的左边与右边可改写如下。
+>
+> <!-- 来源：PDF 第 45 页；原书第 31 页 -->
+>
+> \\[
+> \begin{aligned}
+> \text{左边}
+> &=V_T\left[
+> \ln\left(\frac{I_{C1}}{I_{C2}}\right)
+> -\ln\left(\frac{I_{S1}}{I_{S2}}\right)
+> \right] \\\\
+> &\approx V_T\left[
+> \ln\left(1+\frac{\Delta I_C}{I_C}\right)
+> -\ln\left(1+\frac{\Delta I_S}{I_S}\right)
+> \right]
+> \end{aligned}
+> \\]
+>
+> 在此假设 \\(|x|\ll1\\)，则可近似为 \\(\ln(1+x)\approx x\\)，故得：
+>
+> \\[
+> \ln\left(1+\frac{\Delta I_C}{I_C}\right)
+> \approx\frac{\Delta I_C}{I_C},
+> \qquad
+> \ln\left(1+\frac{\Delta I_S}{I_S}\right)
+> \approx\frac{\Delta I_S}{I_S}
+> \\]
+>
+> 式（3）的左边可近似为：
+>
+> \\[
+> \text{左边}
+> =V_T\left(
+> \frac{\Delta I_C}{I_C}
+> -\frac{\Delta I_S}{I_S}
+> \right) \tag{4}
+> \\]
+>
+> 另一方面，式（3）的右边则可近似为：
+>
+> \\[
+> \begin{aligned}
+> \text{右边}
+> &=R_2I_{E2}-R_1I_{E1} \\\\
+> &\approx -RI_E\left(
+> \frac{\Delta I_E}{I_E}
+> +\frac{\Delta R}{R}
+> \right) \\\\
+> &\approx -RI_E\left(
+> \frac{\Delta I_C}{I_C}
+> +\frac{\Delta R}{R}
+> \right)
+> \end{aligned}
+> \tag{5}
+> \\]
+>
+> 如果把式（4）、式（5）代入式（3）加以整理的话，则集电极电流的相对误差 \\(\Delta I_C/I_C\\) 为：
+>
+> \\[
+> \frac{\Delta I_C}{I_C}
+> =
+> \left(\frac{V_T}{RI_E+V_T}\right)
+> \left(\frac{\Delta I_S}{I_S}\right)
+> -\left(\frac{RI_E}{RI_E+V_T}\right)
+> \left(\frac{\Delta R}{R}\right)
+> \tag{6}
+> \\]
+>
+> 在此若设定 \\(R_1\\) 与 \\(R_2\\) 使得电阻电位降 \\(RI_E\\) 远大于热电压 \\(V_T\\)（约 26 mV；原文误作 mA）的话，则可得下式：
+>
+> \\[
+> \frac{\Delta I_C}{I_C}
+> \approx
+> \left(\frac{V_T}{RI_E}\right)
+> \left(\frac{\Delta I_S}{I_S}\right)
+> -\frac{\Delta R}{R}
+> \tag{7}
+> \\]
+>
+> 此式意味着当 \\(RI_E\\) 远大于 \\(V_T\\) 时，集电极电流的相对误差依赖于发射极电阻的相对误差，并且几乎不受饱和电流误差的影响。
+>
+> 单晶体 IC 上电阻值的误差在 ±0.1%-±2% 左右，比饱和电流的误差小，所以可通过插入发射极电阻从而减小电流镜像的集电极电流的相对误差。
+>
+> 发射极电阻的值如果用激光微调（Laser Trimming）进行微调，集电极电流的相对误差能够更加降低。
+>
 #### 差动放大器的互导（Mutual Conductance）
 
 一般而言，无信号时电路各部分的直流电压和直流电流叫做动作点；但遇有施加微小的输入信号时，则各部分的电压和电流就会以动作点为中心而变化。
