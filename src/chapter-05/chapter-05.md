@@ -230,11 +230,9 @@ I_{\mathrm{E}3}=\left(\frac{1+h_{\mathrm{FE}}}{h_{\mathrm{FE}}}\right)I_{\mathrm
 故将此式代入式(5.5c)，然后把 \\(I_{E3}\\) 消去，加以整理，则得
 
 \\[
-M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}+2}\approx 1-\frac{2}{h_{\mathrm{FE}^2}}
+M=\frac{I_{\mathrm{C}2}}{I_1}=\frac{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}}{h_{\mathrm{FE}}^2+2h_{\mathrm{FE}}+2}\approx 1-\frac{2}{h_{\mathrm{FE}}^2}
 \tag{5.6}
 \\]
-
-<!-- human: h_{\mathrm{FE}^2 平方符号渲染位置有问题-->
 
 如果 \\(h_{FE}\\)=200，则 M≈0.999 95。实际上由于 BJT 的饱和和电流有误差，不致于得到这样的数值，但由此可知 Wilson 型在本质上是非常优异的电路。
 
