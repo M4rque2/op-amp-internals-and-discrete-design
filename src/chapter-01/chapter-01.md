@@ -222,7 +222,7 @@ I_O=-\Delta I_{C4} \\\\
 
 \\[
 \\begin{aligned}
-(\Delta I_{C4}) 为 (Q_4) 的集电极电流的增量。
+\Delta I_{C4} 为 Q_4 的集电极电流的增量。
 \\end{aligned}
 \\]
 
