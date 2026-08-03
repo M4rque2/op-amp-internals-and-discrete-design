@@ -2,7 +2,7 @@
 
 <!-- 来源：PDF 第 113 页；原书第 99 页 -->
 
-现今仍有人不赞同用分立半导体设计运算放大器。但是，完全依赖运算放大器 IC 的电路设计在性能上存在界限，仍是不争的事实。
+现今仍有人不赞同用分立半导体设计运算放大器。但是，完全依赖运算放大器（OP Amp） IC 的电路设计在性能上存在界限，仍是不争的事实。
 
 ## 4.1　为何必须用单个半导体放大器
 
@@ -17,11 +17,11 @@
 \\(\tau_F\\) 与第 3 章附录 A 图 A.5 中基区宽度 \\(W\\) 的平方成正比：
 
 \\[
-\tau_F=\frac{W^2}{2D}
+\tau_F=\frac{W^2}{2D} \\\\
+D是基区少数载流子的扩散常数。
 \tag{4.1}
 \\]
 
-其中 \\(D\\) 是基区少数载流子的扩散常数。
 
 为了缩短 \\(\tau_F\\)，必须减小基区宽度 \\(W\\)。但是，当 \\(W\\) 较小时，较高的 \\(V_{CE}\\) 会扩大基极—集电极结的耗尽层，使有效基区宽度趋近于零，可能产生集电极与发射极导通的穿通（Punch-through）现象。因此高频运算放大器通常必须降低电源电压。
 
@@ -664,17 +664,97 @@ C_{\mathrm{ineq}}
 
 <!-- 来源：PDF 第 136 页；原书第 122 页 -->
 
-图 4.25 的 SPICE 网表见 List 4.1。网表内容对元件连接、模型参数和模拟条件均很敏感，因此保留为高分辨率扫描，避免未经逐字符校验的 OCR 结果被误作可执行代码。
+图 4.25 的 SPICE 网表见 List 4.1。
 
-![List 4.1（上）　图 4.25 的电路网表](images/list-04-01a.png)
-
-**List 4.1（上）　图 4.25 的电路网表**
+<!-- ![List 4.1（上）　图 4.25 的电路网表](images/list-04-01a.png) -->
 
 <!-- 来源：PDF 第 137 页；原书第 123 页 -->
 
-![List 4.1（续）　图 4.25 的电路网表](images/list-04-01b.png)
+<!-- ![List 4.1（续）　图 4.25 的电路网表](images/list-04-01b.png) -->
 
-**List 4.1（续）　图 4.25 的电路网表**
+**List 4.1　图 4.25 的电路网表**
+
+```text
+C:\DATA\OPAMP22I.CIR MULTIPLE ANALYSES
+*
+J1   1    2    3   JUPA63H
+J2   4    5    3   JUPA63H
+Q1   6    7    1   Q2SC1775A
+Q2   8    7    4   Q2SC1775A
+R2   2   IN        470
+C1   0    2        10P
+Q7  10   11    6   Q2SA1145
+Q8   6   12   11   Q2SC1815
+Q9   8   12   13   Q2SC1815
+Q10 14   13    8   Q2SA1145
+Q11 15   15   16   Q2SC1815
+Q12 17   15   18   Q2SC1815
+R12 15   10        10K
+R13 15   11        100K
+R17 19   13        100K
+R18 VEE  16        330
+R19 VEE  18        330
+Q13 17   15   19   Q2SA1015
+Q14 14   19   17   Q2SC2705
+R21 21   14        47
+C4   0   14        10P
+Q15 26   21   27   Q2SA1015
+Q16 22   21   23   Q2SC1815
+Q19 VCC  25   22   Q2SC2911
+Q20 VEE  29   26   Q2SA1209
+D6  25   27        D1S1588
+D7  23   29        D1S1588
+D8  22   25        D1S1588
+D9  29   26        D1S1588
+R24 28   22        33
+R25 26   28        33
+R30 28   30        100
+R31 30    5        5K
+R32  0    5        560
+R33 OUT  28        100
+R34  0   OUT       1G
+C3  15   10        5P
+C5  29   25        0.01U
+C6  30    5        1P
+V1  IN    0   AC 1V PULSE(-0.1 0.1 1U 1N 1N 1U 2U)
+V2  VCC   0   50V
+V3   0   VEE  50V
+V5   7    3   4V
+V7  VCC  12   6V
+I1   3   VEE  4.3mA
+I2  VCC  25   2mA
+I3  29   VEE  2mA
+I4  VCC   6   8mA
+I5  VCC   8   8mA
+*
+.MODEL D1S1588 D (IS=4.4E-14 RS=3.8)
+.MODEL DLED D (IS=1E-30)
+.MODEL Q2SA872A PNP (IS=1.5E-14 BF=500 VAF=150 RB=200 IK=0.025
++ TF=1.3N TR=52N CJE=5P CJC=6.6P XTB=1.4)
+.MODEL Q2SA1015 PNP (IS=1.4E-14 BF=170 BR=10 VAF=100 IK=0.1
++ RB=30 TF=0.63N TR=25N CJE=12P CJC=11P XTB=1.3)
+.MODEL Q2SC1815 NPN (IS=1.0E-14 BF=170 BR=3.6 VAF=100 IK=0.15
++ RB=50 TF=0.5N TR=20N CJE=18P CJC=4.8P XTB=1.7)
+.MODEL Q2SC1775A NPN (IS=2.8E-14 BF=500 VAF=150V RB=200 IK=0.03
++ TF=0.5N TR=20N CJE=6.0P CJC=4.2P XTB=1.7)
+.MODEL Q2SA1145 PNP (IS=2.1E-14 BF=160 VAF=200 RB=70 IK=0.05
++ TF=0.7N TR=28N CJE=20P CJC=7.5P XTB=1.7)
+.MODEL Q2SC2705 NPN (IS=2.8E-14 BF=160 VAF=200 RB=70 IK=0.05
++ TF=0.7N TR=28N CJE=22P CJC=5.1P XTB=1.7)
+.MODEL Q2SD756 NPN (IS=2.8E-14 BF=500 VAF=150V RB=200 IK=0.03
++ TF=0.5N TR=20N CJE=6.0P CJC=4.2P XTB=1.7)
+.MODEL Q2SB716 PNP (IS=1.5E-14 BF=500 VAF=150V RB=200 IK=0.025
++ TF=1.3N TR=52N CJE=5P CJC=6.6P XTB=1.4)
+.MODEL Q2SA1209 PNP (IS=4.0E-14 BF=250 VAF=100V RB=100 IK=0.07
++ TF=1N TR=40N CJE=50P CJC=12P XTB=1.3)
+.MODEL Q2SC2911 NPN (IS=4.0E-14 BF=250 VAF=250V RB=100 IK=0.07
++ TF=0.8N TR=32N CJC=9P CJE=50P XTB=1.7)
+.MODEL JUPA63H NJF (BETA=4M VTO=-1.2 CGS=6P CGD=4.5P)
+.TRAN 9.80392e-009 5e-006 0 2e-009
+.AC DEC 63 1 1e+008
+.PROBE
+.END
+```
 
 首先寻找相位补偿电容 \\(C_6\\) 的最佳值。令 \\(C_6\\) 在 \\(0\\)～\\(5\ \mathrm{pF}\\) 之间变化，闭环增益频率特性与小信号脉冲响应分别见图 4.26、图 4.27。
 
