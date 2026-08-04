@@ -104,7 +104,7 @@ F(V_{\mathrm{OUT}})
 A=\frac{I_P}{\omega C_0}
 \\]
 
-\\(A\\) 是输出电流单峰值 \\(I_P\\) 与负载电容阻抗 \\(1/(\omega C_0)\\) 的乘积，即第二级输出电压的单峰值。以 \\(x\\) 代替式（C.8）右边的相位 \\(\omega t\\)，可得：
+\\(A\\) 是输出电流的单波峰振幅 \\(I_P\\) 与负载电容阻抗 \\(1/(\omega C_0)\\) 的乘积，即第二级输出电压的单波峰振幅。式（C.8）右边的相位 \\(\omega t\\)若用 \\(x\\) 替换，则可得以下的方程式：
 
 \\[
 \begin{aligned}
@@ -114,16 +114,7 @@ A=\frac{I_P}{\omega C_0}
 \tag{C.9}
 \\]
 
-给定 \\(A\\) 与 \\(x\\) 后，可由式（C.9）求出以相位为自变量的输出电压 \\(V_{\mathrm{OUT}}(x)\\)。它是周期为 \\(2\pi\\) 的周期函数。取
-
-\\[
-\begin{aligned}
-x_n&=\frac{2\pi n}{N},
-\qquad n=0,1,2,\ldots,N-1
-\end{aligned}
-\\]
-
-逐点求得 \\(V_{\mathrm{OUT}}(x_n)\\)，再进行离散傅里叶变换（Discrete Fourier Transform, DFT），即可得到基波与各次谐波并计算谐波失真。
+若已知 \\(A\\) 与 \\(x\\) 的话，式（C.9）便可求解，输出电压可当作相位 \\(x\\) 的函数 \\(V_{\mathrm{OUT}}(x)\\) 求解。该 \\(V_{\mathrm{OUT}}(x)\\) 是周期为 \\(2\pi\\) 的周期函数，所以把 \\(x_n=({2\pi n}/{N})\\) 的点列\\(x_n\\)（但 \\(n=0,1,2,\ldots,N-1\\) ）代入 \\(V_{\mathrm{OUT}}(x_n)\\) 进行计算，并进行离散傅里叶变换（Discrete Fourier Transform, DFT），则便可求得基波与谐波，从而能够计算谐波失真。
 
 ![图 C.1　根据分析求得的失真率特性](images/fig-c-01.png)
 
@@ -131,13 +122,16 @@ x_n&=\frac{2\pi n}{N},
 
 <!-- 来源：PDF 第 148 页；原书第 134 页 -->
 
-计算程序见 List C.1。程序中以 `v` 表示 \\(V_{\mathrm{OUT}}\\)，以 \\(N\\) 表示 DFT 点数。计算结果见图 C.1。当基波单峰振幅为 \\(40\ \mathrm{V}\\) 时，三次谐波失真率 \\(D_3\\) 为 \\(1.3\%\\)，略低于式（4.17）估算的 \\(1.8\%\\)；同时还会产生二次谐波失真。
+计算程序见 List C.1。程序中把 \\(V_{\mathrm{OUT}}\\) 记作 `v`。 \\(N\\) 是 DFT 点数。计算结果如图 C.1 所示。基波的单波峰振幅 \\(40\ \mathrm{V}\\) 的三次谐波失真率 \\(D_3\\) 为 \\(1.3\\%\\)，稍小于由式（4.17）计算所得的值 \\(1.8\\%\\)；但是，有二次谐波失真。
 
 ## List C.1　计算第二级负载电容电压依存性所产生谐波失真率的程序
 
-下面把原书程序整理为可读、可编译的代码；扫描原图紧随其后，供逐字符校对。为避免 DFT 最后一轮留下的 `sum1` 参与 THD 累加，整理稿在谐波功率求和前显式加入 `sum1 = 0.0;`；扫描版程序在该处未见这一行。
-
 ```c
+/*===============================*/
+/* 用来计算由第2级的负载电容的电压  */
+/* 依存性所产生的谐波失真率的程序   */
+/*===============================*/
+
 #include <stdio.h>
 #include <math.h>
 
@@ -188,7 +182,12 @@ double F(double v)
     return CF * v + sum;
 }
 
-/* 以牛顿法求解 F(v)/C0 - A*sin(x) = 0 */
+/* =========================================*/
+/* F(v)/C0 - A*sin(x) = 0                   */
+/* 以牛顿法求解, v当作相位x的函数求出，        */
+/* 然后按照2pi/N弧度的x相对的v值排列收藏于W[i] */
+/* =========================================*/
+
 void SolveEquation(double A)
 {
     int i;
@@ -209,10 +208,10 @@ void SolveEquation(double A)
 void DFT(void)
 {
     int i, k;
-    double x;
-    double powspc[N / 2];
-    double fund;
-    double THD, D2, D3;
+    double x;             /* 相位            */
+    double powspc[N / 2]; /* Power Spectral */
+    double fund;          /* 基波的振幅      */
+    double THD, D2, D3;   /* 失真率          */
     double sum1, sum2;
 
     for (k = 1; k < (N / 2); k++) {
@@ -246,8 +245,8 @@ int main(void)
 {
     int i;
     double A;  /* 振幅 */
-    /* double v;  输出电压 Vout */
-    /* double cL; 负载电容 */
+    // double v;  /* 输出电压 Vout */
+    // double cL; /* 负载电容 */
 
     for (i = 1; i < 22; i++) {
         A = 2.0 * i;
@@ -266,18 +265,18 @@ int main(void)
 }
 ```
 
-![List C.1（第 1/3 页）](images/list-c-01a.png)
+<!--![List C.1（第 1/3 页）](images/list-c-01a.png)-->
 
-**List C.1（第 1/3 页）**
+<!--**List C.1（第 1/3 页）**-->
 
 <!-- 来源：PDF 第 149 页；原书第 135 页 -->
 
-![List C.1（第 2/3 页）](images/list-c-01b.png)
+<!--![List C.1（第 2/3 页）](images/list-c-01b.png)-->
 
-**List C.1（第 2/3 页）**
+<!--**List C.1（第 2/3 页）**-->
 
 <!-- 来源：PDF 第 150 页；原书第 136 页 -->
 
-![List C.1（第 3/3 页）](images/list-c-01c.png)
+<!--![List C.1（第 3/3 页）](images/list-c-01c.png)-->
 
-**List C.1（第 3/3 页）**
+<!--**List C.1（第 3/3 页）**-->
