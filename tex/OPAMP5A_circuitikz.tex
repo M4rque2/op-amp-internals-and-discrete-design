@@ -1,0 +1,110 @@
+% Hand-laid-out CircuitikZ redraw of Chapter 3, Figure 3.1.
+% Connectivity follows OPAMP5A.CIR; geometry follows fig-03-01.png.
+\documentclass[border=5pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\usetikzlibrary{positioning,shapes.geometric}
+
+\begin{document}
+\begin{circuitikz}[american voltages, european resistors, every node/.style={font=\small}]
+  \ctikzset{bipoles/length=0.85cm}
+  \tikzset{nlabel/.style={circle,draw,inner sep=1.1pt,font=\scriptsize}}
+
+  % Electrical nodes, positioned to match the printed figure.
+  \coordinate (n11) at (4.75,10.3);
+  \coordinate (n7)  at (4.75,8.9);
+  \coordinate (n6)  at (2.2,7.4);
+  \coordinate (n3)  at (4.75,6.3);
+  \coordinate (n2)  at (2.2,5.0);
+  \coordinate (n5)  at (6.5,5.0);
+  \coordinate (n1)  at (3.8,2.7);
+  \coordinate (n4)  at (5.7,0.8);
+  \coordinate (n9)  at (7.5,7.4);
+  \coordinate (n10) at (8.7,8.9);
+  \coordinate (n8)  at (9.5,5.0);
+
+  % Positive and negative supply rails (nodes 11 and 4 respectively).
+  \draw[thick] (1.35,10.3) -- (11.3,10.3);
+  \draw[thick] (1.35,0.8) -- (11.3,0.8);
+  \node[draw,ellipse,inner sep=2pt,above] at (10.0,10.3) {$V_{CC}$};
+  \node[draw,ellipse,inner sep=2pt,below] at (10.0,0.8) {$V_{EE}$};
+
+  % Bias diodes and current-source/load network.
+  \draw (1.35,10.3) to[D] (1.35,8.85)
+                     to[D] (1.35,7.4) -- (n6);
+  \node[left=2mm] at (1.35,9.55) {$D_1$\;D1S1588};
+  \node[left=2mm] at (1.35,8.1) {$D_2$\;D1S1588};
+  \draw (n11) to[R,l_=$R_2\;1.5\,\mathrm{k\Omega}$] (n7);
+  \draw (n6) -- (1.35,7.4) to[R] (1.35,5.75) -- (1.35,0.8) -- (n4);
+  \node[right=1mm] at (1.35,6.55) {$R_1\;10\,\mathrm{k\Omega}$};
+
+  % Differential pair and PNP active load.
+  \node[pnp,tr circle] (Q3) at (4.75,7.45) {};
+  \node[pnp,tr circle] (Q1) at (3.8,5.0) {};
+  \node[pnp,tr circle,xscale=-1] (Q2) at (5.7,5.0) {};
+  \draw (Q3.E) -- (n7);
+  \draw (Q3.B) -- (n6);
+  \draw (Q3.C) -- (n3);
+  \draw (Q1.E) -- (n3) -- (Q2.E);
+  \draw (Q1.B) -- (n2);
+  \draw (Q2.B) -- (n5);
+  \draw (Q1.C) -- (n1);
+  \draw (Q2.C) |- (n4);
+  \node[above left=3mm] at (Q3) {$Q_3$};
+  \node at (3.25,4.45) {$Q_1$};
+  \node at (6.1,4.45) {$Q_2$};
+
+  % Second gain stage, output device, and collector load.
+  \draw (Q3.B) -- (4.25,6.8);
+  \draw[preaction={draw=white,line width=3pt}]
+    (4.25,6.8) -- (5.7,6.8)
+    to[R,l_=$R_4\;470\,\Omega$] (7.5,6.8) -- (n9);
+  \node[pnp,tr circle] (Q5) at (8.7,7.45) {};
+  \draw (Q5.E) -- (n10);
+  \draw (Q5.B) -| (n9);
+  \draw (Q5.C) |- (n8);
+  \draw (n10) to[R,l_=$R_5\;100\,\Omega$] (8.7,10.3) -- (n11);
+  \node[right=2mm] at (Q5) {$Q_5$};
+
+  \node[npn,tr circle] (Q4) at (8.7,2.25) {};
+  \draw (Q4.C) |- (n8);
+  \draw (Q4.B) -| (n1);
+  \draw (Q4.E) |- (n4);
+  \node[right=2mm] at (Q4) {$Q_4$};
+
+  % Feedback, compensation capacitor, and output load.
+  \draw (n4) -- (3.8,0.8) to[R,l_=$R_3\;3.9\,\mathrm{k\Omega}$] (3.8,2.0) -- (n1);
+  \draw (n5) to[R,l_=$R_6\;10\,\mathrm{k\Omega}$] (n8);
+  \draw (n5) to[R] (6.5,3.5) node[ground] {};
+  \node[right=1mm] at (6.5,4.25) {$R_7\;1\,\mathrm{k\Omega}$};
+  \draw (Q4.B) -- (7.6,2.25)
+    to[C,l_=$C_1\;15\,\mathrm{pF}$] (7.6,3.45) -| (Q4.C);
+  \draw (n8) -- (10.6,5.0) to[R,l_=$R_L\;1\,\mathrm{k\Omega}$] (10.6,3.5) node[ground] {};
+  \node[draw,ellipse,inner sep=2pt,above right=1mm] at (n8) {OUT};
+
+  % Input and the two supply sources, each referenced to node 0 (ground).
+  \draw (n2) -- (0.7,5.0) to[sV] (0.7,3.55) node[ground] {};
+  \node[left=1mm] at (0.7,3.8) {$V_1$};
+  \node[align=left,font=\scriptsize] at (0.25,5.75) {AC 1 V; SIN\\(0,1,1000)};
+  \draw (11.3,10.3) to[V] (11.3,8.8) node[ground] {};
+  \node[right=1mm] at (11.3,9.55) {$V_2\;15\,\mathrm{V}$};
+  \draw (11.3,2.25) node[ground,rotate=180] {} to[V] (11.3,0.8) -- (n4);
+  \node[right=1mm] at (11.3,1.5) {$V_3\;15\,\mathrm{V}$};
+
+  \node[font=\scriptsize,below=4mm] at (5.7,0.8)
+    {$Q_1,Q_2$: Q2SA872A \quad $Q_3,Q_5$: Q2SA1015 \quad $Q_4$: Q2SC1815};
+
+  % Circled net numbers used in the original figure.
+  \node[nlabel,above right] at (n11) {11};
+  \node[nlabel,right] at (1.35,8.85) {12};
+  \node[nlabel,right] at (n7) {7};
+  \node[nlabel,left] at (n6) {6};
+  \node[nlabel,above left] at (n3) {3};
+  \node[nlabel,below left] at (n2) {2};
+  \node[nlabel,below right] at (n5) {5};
+  \node[nlabel,left] at (n1) {1};
+  \node[nlabel,left] at (5.7,3.85) {4};
+  \node[nlabel,above] at (n9) {9};
+  \node[nlabel,right] at (n10) {10};
+  \node[nlabel,right] at (9.7,3.55) {8};
+\end{circuitikz}
+\end{document}

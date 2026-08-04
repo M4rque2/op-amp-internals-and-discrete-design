@@ -107,6 +107,14 @@ In this Micro-Cap file they are comments; Micro-Cap does not use them to configu
 
 The `*#` form (with no space) is recognized as an embedded control-command convention by some WinSPICE/Spice3-compatible programs. `* #` with a space is not the same thing.
 
+## CircuitikZ source
+
+[OPAMP5A_circuitikz.tex](OPAMP5A_circuitikz.tex) recreates the Figure 3.1 schematic as editable CircuitikZ/LaTeX source. Compile it with a LaTeX installation that includes CircuitikZ:
+
+```text
+pdflatex OPAMP5A_circuitikz.tex
+```
+
 ## Files produced by Micro-Cap
 
 - `OPAMP5A.TNO` — transient numeric output.
