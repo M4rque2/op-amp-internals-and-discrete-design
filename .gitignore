@@ -1,6 +1,8 @@
 .DS_Store
+*.pyc
+
+/multisim/
 /book/
 /tmp/
 /.workbuddy/
 /datasheets/
-*.pyc
