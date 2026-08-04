@@ -157,7 +157,7 @@ SPICE 的基本模拟分析方法有以下三种：
 **List 3.1　五晶体管运算放大器的 SPICE 模拟用网表**
 
 ```text
-C: ¥DATA¥OPAMP5A.CIR MULTIPLE ANALYSES
+C:\DATA\OPAMP5A.CIR MULTIPLE ANALYSES
 *
 Q1  1    2    3   Q2SA872A
 Q2  4    5    3   Q2SA872A
@@ -356,7 +356,7 @@ CJC=4.8P)
 **List 3.2　七晶体管运算放大器的 SPICE 模拟器用网表**
 
 ```text
-C: ¥DATA¥OPAMP7A.CIR MULTIPLE ANALYSES
+C:\DATA\OPAMP7A.CIR MULTIPLE ANALYSES
 *
 Q1  1    IN   3   Q2SA872A
 Q2  VEE   5   3   Q2SA872A
@@ -855,7 +855,7 @@ List 3.6 是用于模拟的网表（Net List），为正确起见，而在晶体
 **List 3.6　十晶体管运算放大器的 SPICE 模拟用网表**
 
 ```text
-C: ¥DATA¥OPAMP10B.CIR MULTIPLE ANALYSES
+C:\DATA\OPAMP10B.CIR MULTIPLE ANALYSES
 *
 Q1   1    IN   3   Q2SA872A
 Q2   4     5   3   Q2SA872A

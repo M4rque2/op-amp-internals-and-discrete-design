@@ -1,0 +1,29 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                         AC Analysis of OPAMP22I                          ***
+***                           8/4/2026 2:17:52 PM                            ***
+********************************************************************************
+Limits
+======
+Frequency Range          Log 1E+008,1
+Number of Points         505
+Temperature              List 27
+Maximum Change %         5
+Noise Input              NONE
+Noise Output             2
+Run Options              Normal
+State Variables          Zero
+Operating Point          On
+Auto Scale Ranges        On
+Accumulate Plots         Off
+Ignore Expression Errors Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+

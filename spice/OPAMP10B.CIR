@@ -1,0 +1,60 @@
+OPAMP10B - MULTIPLE ANALYSES
+*
+Q1   1    IN   3   Q2SA872A
+Q2   4     5   3   Q2SA872A
+Q3   3     6   7   Q2SA1015
+Q4   8     9  VEE  Q2SC1815
+Q5  11    12  13   Q2SA1015
+R2   7    VCC  1.5K
+D1  VCC   15   D1S1588
+D2  15     6   D1S1588
+R1  VEE    6   10K
+R4  12     6   470
+C1   1     8   30P
+R5  13    VCC  620
+R6  OUT    5   10K
+R7   0     5   1K
+V1  IN     0   AC 1V SIN(0,1.4 50K)
+V2  VCC    0   15V
+V3   0    VEE  15V
+RL   0    OUT  1K
+D3  11    17   D1S1588
+D4  17    18   D1S1588
+D5  18     8   D1S1588
+Q6  VCC   11   19   Q2SC1815
+Q7  VEE    8   20   Q2SA1015
+R8  OUT   19   47
+R9  20    OUT  47
+Q9   4     4   21   Q2SC1815
+Q8   1     4   22   Q2SC1815
+R10 VEE   21   470
+R11 VEE   22   470
+Q10 VCC    1    9   Q2SC1815
+R12 VEE    9    1.5K
+D6   1     8   D1S1588
+C2  OUT    5   1P
+*
+.MODEL D1S1588 D (IS=4.4E-14 RS=3.8)
+.MODEL Q2SA872A PNP (IS=1.5E-14 BF=500 VAF=150
++ RB=200 TF=1.3N TR=52N CJE=5P CJC=6.6P XTB=1.4)
+.MODEL Q2SA1015 PNP (IS=1.4E-14 BF=170 BR=10 VAF=100
++ RB=30 TF=0.63N TR=25N CJE=12P CJC=11P XTB=1.3)
+.MODEL Q2SC1815 NPN (IS=1.0E-14 BF=170 BR=3.6 VAF=100
++ RB=50 TF=0.5N TR=20N CJE=18P CJC=4.8P XTB=1.7)
+.TEMP 0 10 20 30 40 50
+.OP
+.TRAN 3.92234e-009 2e-005 0 1e-008
+.AC DEC 63 1 1e+008
+.PROBE
+* #destroy all
+* #save all @q10[ic]
+* #run
+* #settype current @q10[ic]
+* #setplot tran1
+* #plot @q10[ic]
+* #plot v(out)
+* #plot (v(in)-v(5))
+* #plot ab(ac1.v(out))
+* #plot ab(ac1.v(out)/(ac1.v(in)-ac1.v(5)))
+* #plot ph(ac1.v(out)/(ac1.v(in)-ac1.v(5))) * 180/pi
+.END
