@@ -24,7 +24,7 @@
 
 <table><tr><td>型号</td><td>闭环截止频率 /MHz typ</td><td>转换速率 /(V/μs) typ</td><td>输入失调电压 /mV typ(max)</td><td>正向输入偏置电流 /μA typ(max)</td><td>反向输入偏置电流 /μA typ(max)</td><td>厂家</td></tr><tr><td>AD811A</td><td>140</td><td>2500</td><td>0.5(3)</td><td>2(10)</td><td>2(5)</td><td>AD</td></tr><tr><td>AD844A</td><td>60</td><td>2000</td><td>0.05(0.3)</td><td>0.15(0.4)</td><td>0.2(0.45)</td><td>AD</td></tr><tr><td>AD846A</td><td>80</td><td>450</td><td>0.025(0.2)</td><td>0.15(0.4)</td><td>3(15)</td><td>AD</td></tr><tr><td>AD8001A</td><td>880</td><td>1200</td><td>2.0(5.5)</td><td>3(6)</td><td>5(25)</td><td>AD</td></tr><tr><td>LT1227</td><td>140</td><td>1100</td><td>3(10)</td><td>0.3(3)</td><td>10(60)</td><td>LT</td></tr><tr><td>LM6182*</td><td>100</td><td>2000</td><td>2(5)</td><td>0.25(1.5)</td><td>5(10)</td><td>NS</td></tr><tr><td>EL2280C*</td><td>250</td><td>1200</td><td>2.5(10)</td><td>1.5(15)</td><td>16(40)</td><td>EL</td></tr><tr><td>MAX4225*</td><td>1000</td><td>1100</td><td>0.5(5)</td><td>2(10)</td><td>4(25)</td><td>MAX</td></tr><tr><td>OPA658P</td><td>900</td><td>1700</td><td>3(5.5)</td><td>5.7(30)</td><td>1.1(35)</td><td>TI</td></tr></table>
 
-（\* 记号表示含有两电路）
+（\* 记号表示双运放封装）
 
 ### 7.2.2　电流反馈型运算放大器的工作原理
 
