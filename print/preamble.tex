@@ -1,0 +1,69 @@
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{etoolbox}
+\usepackage{newunicodechar}
+\usepackage{titlesec}
+\usepackage{emptypage}
+
+% mdbook-pandoc can emit a source chapter as either a chapter or a section,
+% depending on its SUMMARY nesting and leading metadata. Give both commands the
+% same B5-aware appearance; the Lua filter supplies the recto page break.
+\titleformat{\chapter}[block]
+  {\centering\LARGE\bfseries}
+  {}{0pt}{}
+\titlespacing*{\chapter}{0pt}{25mm}{18mm}
+\titleformat{\section}[block]
+  {\centering\LARGE\bfseries}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{25mm}{18mm}
+
+% The Windows text fonts do not contain every editorial and mathematical
+% Unicode symbol used by the transcription. Select explicit symbol fonts so
+% these characters never turn into blank boxes in the PDF.
+\newfontfamily\booksymbolfont{Segoe UI Symbol}
+\newfontfamily\bookmathsymbolfont{Cambria Math}
+\newunicodechar{▶}{{\booksymbolfont ▶}}
+\newunicodechar{◆}{{\booksymbolfont ◆}}
+\newunicodechar{①}{{\booksymbolfont ①}}
+\newunicodechar{②}{{\booksymbolfont ②}}
+\newunicodechar{③}{{\booksymbolfont ③}}
+\newunicodechar{④}{{\booksymbolfont ④}}
+\newunicodechar{⑤}{{\booksymbolfont ⑤}}
+\newunicodechar{⑥}{{\booksymbolfont ⑥}}
+\newunicodechar{⑦}{{\booksymbolfont ⑦}}
+\newunicodechar{⑧}{{\booksymbolfont ⑧}}
+\newunicodechar{⑨}{{\booksymbolfont ⑨}}
+\newunicodechar{⑩}{{\booksymbolfont ⑩}}
+\newunicodechar{⑪}{{\booksymbolfont ⑪}}
+\newunicodechar{⑫}{{\booksymbolfont ⑫}}
+\newunicodechar{Ⓐ}{{\booksymbolfont Ⓐ}}
+\newunicodechar{𝛺}{{\bookmathsymbolfont 𝛺}}
+\newunicodechar{𝜇}{{\bookmathsymbolfont 𝜇}}
+\newunicodechar{・}{\ensuremath{\mathord{\cdot}}}
+
+% Figure captions in the Markdown already begin with their original labels,
+% such as "图 3.1". Do not add a second automatic figure label.
+\captionsetup[figure]{
+  labelformat=empty,
+  font=small,
+  justification=centering
+}
+\captionsetup[table]{
+  labelformat=empty,
+  font=small
+}
+
+% Keep dense component tables readable on the B5 page.
+\AtBeginEnvironment{longtable}{%
+  \small
+  \setlength{\tabcolsep}{3.5pt}%
+  \renewcommand{\arraystretch}{1.12}%
+}
+
+% Prefer flexible page bottoms to large vertical holes around circuit figures,
+% while strongly discouraging widows and orphans.
+\setlength{\emergencystretch}{3em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
