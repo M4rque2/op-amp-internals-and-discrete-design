@@ -13,3 +13,4 @@
 - [第 6 章　高精度、低噪声运算放大器 IC 的分析](chapter-06/chapter-06.md)
 - [第 7 章　高速宽频带运算放大器的分析](chapter-07/chapter-07.md)
 - [第 8 章　CMOS 型运算放大器 IC 的分析](chapter-08/chapter-08.md)
+- [参考文献](bibliography.md)
